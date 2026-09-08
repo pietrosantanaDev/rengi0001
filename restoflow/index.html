@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f172a">
+  <title>Restoflow — Gestão financeira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="toast" class="toast"></div>
+  <div id="loginScreen" class="login-screen hidden">
+    <div class="login-card">
+      <div class="brand-mark">R</div><p class="eyebrow">RESTOFLOW</p>
+      <h1>Controle seu restaurante<br><span>sem complicação.</span></h1>
+      <p class="muted">Entre para acompanhar faturamento, despesas e lucro em um só lugar.</p>
+      <form id="loginForm" class="stack">
+        <label>E-mail<input id="loginEmail" type="email" placeholder="voce@restaurante.com" required></label>
+        <label>Senha<input id="loginPassword" type="password" placeholder="••••••••" required></label>
+        <button class="btn primary full" type="submit">Entrar</button>
+      </form>
+      <button id="demoLogin" class="text-btn">Entrar como demonstração</button>
+    </div>
+  </div>
+
+  <div id="app" class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="brand-mark small">R</div><div><strong>Restoflow</strong><small>Finance</small></div></div>
+      <nav id="mainNav">
+        <button data-page="dashboard" class="nav-item active"><span>⌂</span>Dashboard</button>
+        <button data-page="receitas" class="nav-item"><span>↗</span>Receitas</button>
+        <button data-page="despesas" class="nav-item"><span>↘</span>Despesas</button>
+        <button data-page="fechamento" class="nav-item"><span>◷</span>Fechamento do dia</button>
+        <button data-page="analises" class="nav-item"><span>◌</span>Análises</button>
+        <button data-page="historico" class="nav-item"><span>☷</span>Histórico</button>
+        <button data-page="calendario" class="nav-item"><span>▦</span>Calendário</button>
+        <button data-page="relatorios" class="nav-item"><span>▤</span>Relatórios</button>
+        <div class="nav-divider"></div>
+        <button data-page="configuracoes" class="nav-item"><span>⚙</span>Configurações</button>
+      </nav>
+      <div class="sidebar-footer"><div class="avatar">PS</div><div><strong>Pietro Santana</strong><small>Administrador</small></div><button id="logoutBtn" title="Sair">↪</button></div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><button id="menuBtn" class="icon-btn mobile-only">☰</button><div class="breadcrumb">Visão geral <span>/</span> <b id="pageName">Dashboard</b></div><div class="top-actions"><button id="quickMove" class="btn primary"><span>＋</span> Nova movimentação</button></div></header>
+      <section id="content" class="content"></section>
+    </main>
+  </div>
+
+  <div id="modal" class="modal hidden"><div class="modal-backdrop" data-close></div><div class="modal-card"><div class="modal-head"><div><p class="eyebrow" id="modalEyebrow">LANÇAMENTO</p><h2 id="modalTitle">Nova movimentação</h2></div><button class="icon-btn" data-close>×</button></div><div id="modalBody"></div></div></div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
